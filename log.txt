@@ -5,6 +5,11 @@ Tasks completed (2023/02/09):
         # return an ability modifier for a given score
         # input an ability and its score to update ability score for character with score + modifier 
 
+    For dice:
+        # made dN die roller
+        # made ndN die roller
+        # made stat generator (6x 3d6)
+
 
 Things to include: (slimline 5e - utilising some concepts from five torches deep)
     # Level = 1
