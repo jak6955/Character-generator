@@ -1,0 +1,23 @@
+
+Tasks completed (2023/02/09):
+
+    For character sheet:
+        # return an ability modifier for a given score
+        # input an ability and its score to update ability score for character with score + modifier 
+
+
+Things to include: (slimline 5e - utilising some concepts from five torches deep)
+    # Level = 1
+    # Race (name, racical modifiers | extra: racical abilties) 
+    # Class (name, hit die size, level 1 abilties | extra: bonus levels, spells?, equipment ) 
+        (limit to fighter/thief/mage/cleric)
+    # Ability score + mods (roll 3d6 or standard array | + racical modifiers)
+    # Saving throws (ability mods + proficiency bonus)
+    # HP - class die + con mod
+    # Initiative = dex mod
+    # AC = armour + dex mod + (shield?)
+        create 3 armours (none, light, heavy)
+    # melee attack = +str
+    # ranged attack = +dex
+
+ 
