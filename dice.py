@@ -30,3 +30,21 @@ def stat_gen():
             dice_log.append(dice_value)
         stat_log.append(sum(dice_log))
     return stat_log
+
+
+#4d6 drop lowest
+def alt_stat_gen():
+    stat_log = []
+
+    for stat in range(6):
+        dice_log = []
+        for dice in range(4):
+            dice_value = random.choice(range(1,7))
+            dice_log.append(dice_value)
+        dice_log.remove(min(dice_log))
+        stat_log.append(sum(dice_log))    
+    return stat_log
+
+
+
+
