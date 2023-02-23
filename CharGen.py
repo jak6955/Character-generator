@@ -23,6 +23,31 @@ class Character:
         self.role = Role()
         self.AC = 0
 
+    def __repr__(self) -> str:
+        return f"""
+This is {self.name} the {self.role.role}'s, character sheet.
+You have {self.role.hp} HP out of {self.role.maxhp}.
+
+Your abilities are:
+{self.abilities_ref()}
+
+Your proficiencies are:
+- Armor: {self.role.proficienies[0]}
+- Weapons {self.role.proficienies[1]}
+- Abilties {self.role.proficienies[2]}
+- Checks {self.role.proficienies[3]}"""       
+        
+    # determines characters name
+    def name_def(self):
+        approval = False
+        while approval == False:
+            self.name = input("What is your character's name? Please type here: ")
+            check = input(f"Are you happy with '{self.name}? [Y]es or [N]o. Please type the letter corresponding to your answer: ")
+            if check.upper() == "Y":
+                approval = True
+                return
+
+    #find ability mod from a given ability score
     def ability_mod(self, score):
 
         mod = 0
@@ -44,7 +69,7 @@ class Character:
     #ask roll method, input ability and abiltiy mod
     def input_stats(self):
         stat_list = []
-        gen_type = int(input("For your character's stats, would you like to roll [1] 3d6 in order, or [2] 4d6 drop lowest in order? Please type the corrosponding number: "))
+        gen_type = int(input(f"For {self.name}'s stats, would you like to roll [1] 3d6 in order, or [2] 4d6 drop lowest in order? Please type the corrosponding number: "))
 
         while stat_list == []:
             if gen_type == 1:
@@ -52,7 +77,7 @@ class Character:
             elif gen_type == 2:
                 stat_list = alt_stat_gen()
             else:
-                gen_type = int(input("For your character's stats, would you like to roll [1] 3d6 in order, or [2] 4d6 drop lowest in order? Please type the corrosponding number: "))
+                gen_type = int(input(f"For {self.name}'s stats, would you like to roll [1] 3d6 in order, or [2] 4d6 drop lowest in order? Please type the corrosponding number: "))
         
         for i in range(len(stat_list)):
             a = stats[i]
@@ -62,7 +87,7 @@ class Character:
     
     #return abilities list as [Ability: Score (Modifier)]
     def abilities_ref(self):
-        ref_string = "Your abilities are: \n"
+        ref_string = ""
         for i in self.abilities:
             stat = i[0]
             score = format(i[1], '02d') # return 1 as 01
@@ -76,7 +101,7 @@ class Character:
 
     # determine role
     def det_role(self):
-        role = int(input("Please choose your character's class: [1] Warrior, [2] Thief, [3] Zealot, [4] Mage. Please type the corrosponding number: "))
+        role = int(input(f"Please choose {self.name}'s class: [1] Warrior, [2] Thief, [3] Zealot, [4] Mage. Please type the corrosponding number: "))
         while 0 < role < 5:
             if role == 1:
                 self.role.warrior(pc.abilities[2][2])
@@ -92,13 +117,15 @@ class Character:
                 role = 0
         return
     
-    
+
 
 
 
 pc = Character()
+pc.name_def()
+print(f"Welcome {pc.name}.")
 pc.input_stats()
 print(pc.abilities_ref())
 pc.det_role()
-print(pc.role.__repr__())
+print(pc.__repr__())
 

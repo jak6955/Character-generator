@@ -1,4 +1,17 @@
 
+Task completed (2023/02/23):
+
+    For character sheet:
+        # Ask user to choose roll method and then ability score and modifier determined and inputted
+        # define return abilities, scores and mods
+        # Add role to character
+        # Can name character
+        # Return character sheet at end of process
+            name
+            class
+            abilities, scores and mods
+            proficiencies
+
 Tasks completed (2023/02/09):
 
     For character sheet:
